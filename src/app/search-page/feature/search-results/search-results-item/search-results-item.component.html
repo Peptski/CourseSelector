@@ -1,0 +1,13 @@
+<div class="container">
+  <span>{{ course.Code }}</span>
+  <span class="coursename">{{ course.Name }}</span>
+  <span>{{ course.Credit }}</span>
+  <span>{{ course.Institution }}</span>
+  <div class="stats">
+    <span> Godkänt: {{ course.PassRate | percentage }}</span>
+    <span> Snitt Betyg: {{ course.AverageGrade.toFixed(2) }}</span>
+    <span> Mängd data: {{ course.SampleSize }}</span>
+  </div>
+  <a [href]="course.CourseInfo">Mer info</a>
+  <a [href]="course.Canvas">Canvas</a>
+</div>

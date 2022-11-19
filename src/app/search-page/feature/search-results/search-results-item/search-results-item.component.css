@@ -1,0 +1,36 @@
+.container {
+  width: 100%;
+  height: 100%;
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  grid-template-rows: 1fr 2fr;
+  justify-content: space-around;
+  padding: 1.2rem;
+  background-color: #666;
+}
+
+span {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.stats {
+  grid-column: 1 / span 4;
+  display: flex;
+  justify-content: space-around;
+}
+
+.coursename {
+  grid-column: 2 / span 3;
+}
+
+a {
+  all: unset;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 1.2rem;
+  border-radius: 0.8rem;
+  background-color: #444;
+}
