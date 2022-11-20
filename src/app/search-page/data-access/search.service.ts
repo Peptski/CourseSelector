@@ -18,27 +18,23 @@ export class SearchService {
 
     //if (settings.CourseName) query += `&search_course_name_sv=${settings.CourseName}`;
 
-    if (settings.Program)
-      query += `&field_search_course_owner=${settings.Program}`;
+    if (settings.Program) query += `&search_course_owner=${settings.Program}`;
 
-    if (settings.Institution)
-      query += `&field_search_dept=${settings.Institution}`;
+    if (settings.Institution) query += `&search_dept=${settings.Institution}`;
 
     if (settings.StudyPeriod)
-      query += `&field_search_start_sp=${settings.StudyPeriod}`;
+      query += `&search_start_sp=${settings.StudyPeriod}`;
 
     if (settings.CourseLevel)
-      query += `&field_search_edu_level=${settings.CourseLevel}`;
+      query += `&search_edu_level=${settings.CourseLevel}`;
 
-    if (settings.MinCredit)
-      query += `&field_search_credit_min=${settings.MinCredit}`;
+    if (settings.MinCredit) query += `&search_credit_min=${settings.MinCredit}`;
 
-    if (settings.MaxCredit)
-      query += `&field_search_credit_max=${settings.MaxCredit}`;
+    if (settings.MaxCredit) query += `&search_credit_max=${settings.MaxCredit}`;
 
-    if (settings.Language) query += `&field_search_lang=${settings.Language}`;
+    if (settings.Language) query += `&search_lang=${settings.Language}`;
 
-    if (settings.Year) query += `&field_search_grade=${settings.Year}`;
+    if (settings.Year) query += `&search_grade=${settings.Year}`;
 
     if (settings.Capacity) query += `&search_max_amount=${settings.Capacity}`;
 
