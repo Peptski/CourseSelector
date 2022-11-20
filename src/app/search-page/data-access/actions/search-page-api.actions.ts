@@ -3,7 +3,7 @@ import { Course } from '../../utils/course.model';
 
 export const apiSearchSuccess = createAction(
   '[Search API] API search success',
-  props<{ courses: Course[] }>()
+  props<{ data: Promise<String> }>()
 );
 export const apiSearchFail = createAction(
   '[Search API] API search fail',

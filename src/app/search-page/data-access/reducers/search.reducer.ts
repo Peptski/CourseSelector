@@ -6,6 +6,7 @@ import {
 } from '@ngrx/store';
 import { Course } from '../../utils/course.model';
 import { Settings } from '../../utils/settings.model';
+import { apiSearchSuccess } from '../actions/search-page-api.actions';
 import {
   updateCapacity,
   updateCourseCode,
@@ -177,11 +178,21 @@ export const reducer = createReducer(
         Sort: state.settings.Sort === action.data ? '' : action.data,
       },
     };
+  }),
+  on(apiSearchSuccess, (state, action) => {
+    console.log(action);
+    return { ...state };
   })
 );
 
 export const selectSearchPageState = createFeatureSelector<State>('search');
-export const selectSearchState = createSelector(
+
+export const selectCourses = createSelector(
   selectSearchPageState,
   (searchPageState) => searchPageState.courses
+);
+
+export const selectSettings = createSelector(
+  selectSearchPageState,
+  (searchPageState) => searchPageState.settings
 );

@@ -7,6 +7,7 @@ import { EffectsModule } from '@ngrx/effects';
 import { AppComponent } from './app/app.component';
 import { reducer } from './app/search-page/data-access/reducers/search.reducer';
 import { environment } from './environments/environment';
+import { SearchApiEffects } from './app/search-page/data-access/effects/search-api.effects';
 
 if (environment.production) {
   enableProdMode();
@@ -17,7 +18,7 @@ bootstrapApplication(AppComponent, {
     importProvidersFrom(
       HttpClientModule,
       StoreModule.forRoot({ search: reducer }),
-      EffectsModule.forRoot([]),
+      EffectsModule.forRoot([SearchApiEffects]),
       StoreDevtoolsModule.instrument({
         maxAge: 25,
       })

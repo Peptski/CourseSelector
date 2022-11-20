@@ -1,15 +1,28 @@
 <div class="wrapper">
-  <form class="container">
+  <form class="container" [formGroup]="settingsForm">
     <div class="input course_code">
-      <input type="text" placeholder="Kurs kod" />
+      <input
+        type="text"
+        placeholder="Kurs kod"
+        formControlName="CourseCode"
+        (change)="updateSettings('CourseCode', $event)"
+      />
     </div>
 
     <div class="input course_name">
-      <input type="text" placeholder="Kurs namn" />
+      <input
+        type="text"
+        placeholder="Kurs namn"
+        formControlName="CourseName"
+        (change)="updateSettings('CourseName', $event)"
+      />
     </div>
 
     <div class="input program">
-      <select>
+      <select
+        (change)="updateSettings('Program', $event)"
+        formControlName="Program"
+      >
         <option value="" hidden selected>Program</option>
         <option value=""></option>
         <option value="1859">ZBARD - TEKNISKT BASÅR PÅ DISTANS</option>
@@ -166,7 +179,10 @@
     </div>
 
     <div class="input institution">
-      <select>
+      <select
+        (change)="updateSettings('Institution', $event)"
+        formControlName="Institution"
+      >
         <option value="" hidden selected>Instutition</option>
         <option value=""></option>
         <option value="0109">
@@ -305,11 +321,21 @@
     </div>
 
     <div class="input min_credit">
-      <input type="number" placeholder="Min poäng" />
+      <input
+        type="number"
+        placeholder="Min poäng"
+        formControlName="MinCredit"
+        (change)="updateSettings('MinCredit', $event)"
+      />
     </div>
 
     <div class="input max_credit">
-      <input type="number" placeholder="Max poäng" />
+      <input
+        type="number"
+        placeholder="Max poäng"
+        formControlName="MaxCredit"
+        (change)="updateSettings('MaxCredit', $event)"
+      />
     </div>
 
     <div class="input mode language">
