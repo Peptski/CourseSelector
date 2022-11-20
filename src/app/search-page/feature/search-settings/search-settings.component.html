@@ -198,26 +198,110 @@
     </div>
 
     <div class="input mode study_period">
-      <div class="option selected">Fri</div>
-      <div class="option">LP1</div>
-      <div class="option">LP2</div>
-      <div class="option">LP3</div>
-      <div class="option">LPS</div>
+      <button
+        (click)="updateSettings('StudyPeriod', 'OTH')"
+        type="button"
+        class="option"
+      >
+        Fri
+      </button>
+      <button
+        (click)="updateSettings('StudyPeriod', 'LP1')"
+        type="button"
+        class="option"
+      >
+        LP1
+      </button>
+      <button
+        (click)="updateSettings('StudyPeriod', 'LP2')"
+        type="button"
+        class="option"
+      >
+        LP2
+      </button>
+      <button
+        (click)="updateSettings('StudyPeriod', 'LP3')"
+        type="button"
+        class="option"
+      >
+        LP3
+      </button>
+      <button
+        (click)="updateSettings('StudyPeriod', 'LPS')"
+        type="button"
+        class="option"
+      >
+        LPS
+      </button>
     </div>
 
     <div class="input mode education_level">
-      <div class="option">Förutbildningsnivå</div>
-      <div class="option">Grundnivå</div>
-      <div class="option">Avancerad nivå</div>
-      <div class="option">Forskarnivå</div>
+      <button
+        (click)="updateSettings('CourseLevel', '0')"
+        type="button"
+        class="option"
+      >
+        Förutbildningsnivå
+      </button>
+      <button
+        (click)="updateSettings('CourseLevel', '1')"
+        type="button"
+        class="option"
+      >
+        Grundnivå
+      </button>
+      <button
+        (click)="updateSettings('CourseLevel', '2')"
+        type="button"
+        class="option"
+      >
+        Avancerad nivå
+      </button>
+      <button
+        (click)="updateSettings('CourseLevel', '3')"
+        type="button"
+        class="option"
+      >
+        Forskarnivå
+      </button>
     </div>
 
     <div class="input mode year">
-      <div class="option">År 1</div>
-      <div class="option selected">År 2</div>
-      <div class="option">År 3</div>
-      <div class="option">År 4</div>
-      <div class="option">År 5</div>
+      <button
+        (click)="updateSettings('Year', '1')"
+        type="button"
+        class="option"
+      >
+        År 1
+      </button>
+      <button
+        (click)="updateSettings('Year', '2')"
+        type="button"
+        class="option"
+      >
+        År 2
+      </button>
+      <button
+        (click)="updateSettings('Year', '3')"
+        type="button"
+        class="option"
+      >
+        År 3
+      </button>
+      <button
+        (click)="updateSettings('Year', '4')"
+        type="button"
+        class="option"
+      >
+        År 4
+      </button>
+      <button
+        (click)="updateSettings('Year', '5')"
+        type="button"
+        class="option"
+      >
+        År 5
+      </button>
     </div>
 
     <div class="input min_credit">
@@ -229,20 +313,68 @@
     </div>
 
     <div class="input mode language">
-      <div class="option">Svenska</div>
-      <div class="option">Engelska</div>
+      <button
+        (click)="updateSettings('Language', 'sv')"
+        type="button"
+        class="option"
+      >
+        Svenska
+      </button>
+      <button
+        (click)="updateSettings('Language', 'en')"
+        type="button"
+        class="option"
+      >
+        Engelska
+      </button>
     </div>
 
     <div class="input mode capacity">
-      <div class="option">Med platsgräns</div>
-      <div class="option">Utan platsgräns</div>
+      <button
+        (click)="updateSettings('Capacity', 'J')"
+        type="button"
+        class="option"
+      >
+        Med platsgräns
+      </button>
+      <button
+        (click)="updateSettings('Capacity', 'N')"
+        type="button"
+        class="option"
+      >
+        Utan platsgräns
+      </button>
     </div>
 
     <div class="input mode sort">
-      <div class="option">Kod</div>
-      <div class="option">Namn</div>
-      <div class="option">Poäng</div>
-      <div class="option">Institution</div>
+      <button
+        (click)="updateSettings('Sort', 'CODE')"
+        type="button"
+        class="option"
+      >
+        Kod
+      </button>
+      <button
+        (click)="updateSettings('Sort', 'NAME')"
+        type="button"
+        class="option"
+      >
+        Namn
+      </button>
+      <button
+        (click)="updateSettings('Sort', 'CREDIT_SORT')"
+        type="button"
+        class="option"
+      >
+        Poäng
+      </button>
+      <button
+        (click)="updateSettings('Sort', 'DEPT')"
+        type="button"
+        class="option"
+      >
+        Institution
+      </button>
     </div>
   </form>
 </div>

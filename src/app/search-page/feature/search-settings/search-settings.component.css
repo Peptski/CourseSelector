@@ -46,6 +46,10 @@ select {
   cursor: pointer;
 }
 
+button {
+  cursor: pointer;
+}
+
 .mode {
   cursor: pointer;
   display: flex;
