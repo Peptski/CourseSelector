@@ -17,6 +17,9 @@ import {
   updateStudyPeriod,
   updateYear,
 } from '../../data-access/actions/search-page.actions';
+import { Observable } from 'rxjs';
+import { Settings } from '../../utils/settings.model';
+import { selectSettings } from '../../data-access/reducers/search.reducer';
 
 @Component({
   selector: 'app-search-settings',
@@ -27,8 +30,11 @@ import {
 })
 export class SearchSettingsComponent {
   settingsForm: FormGroup;
+  settings$: Observable<Settings>;
 
   constructor(private store: Store) {
+    this.settings$ = this.store.select(selectSettings);
+
     this.settingsForm = new FormGroup({
       CourseCode: new FormControl(''),
       CourseName: new FormControl(''),

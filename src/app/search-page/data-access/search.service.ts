@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Settings } from '../utils/settings.model';
+import { Course } from '../utils/course.model';
 
 @Injectable({ providedIn: 'root' })
 export class SearchService {
@@ -40,8 +41,11 @@ export class SearchService {
 
     if (settings.Sort) query += `&sortorder=${settings.Sort}`;
 
-    console.log(query);
+    const head = { headers: { URL: query } };
 
-    return this.http.get(query);
+    return this.http.get<{ Courses: Course[] }>(
+      'https://courseapi-369222.ey.r.appspot.com/search',
+      head
+    );
   }
 }

@@ -4,9 +4,13 @@
   <span>{{ course.Credit }}</span>
   <span>{{ course.Institution }}</span>
   <div class="stats">
-    <span> Godkänt: {{ course.PassRate | percentage }}</span>
-    <span> Snitt Betyg: {{ course.AverageGrade.toFixed(2) }}</span>
-    <span> Mängd data: {{ course.SampleSize }}</span>
+    <span *ngIf="course.PassRate">
+      Godkänt: {{ course.PassRate | percentage }}</span
+    >
+    <span *ngIf="course.AverageGrade">
+      Snitt Betyg: {{ course.AverageGrade.toFixed(2) }}</span
+    >
+    <span *ngIf="course.SampleSize"> Mängd data: {{ course.SampleSize }}</span>
   </div>
   <a [href]="course.CourseInfo">Mer info</a>
   <a [href]="course.Canvas">Canvas</a>

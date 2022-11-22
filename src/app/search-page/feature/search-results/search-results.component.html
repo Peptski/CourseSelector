@@ -1,6 +1,6 @@
 <div class="container">
   <app-search-results-item
-    *ngFor="let course of items"
+    *ngFor="let course of courses$ | async"
     [course]="course"
   ></app-search-results-item>
 </div>

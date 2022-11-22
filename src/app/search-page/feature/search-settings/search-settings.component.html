@@ -218,6 +218,7 @@
         (click)="updateSettings('StudyPeriod', 'OTH')"
         type="button"
         class="option"
+        [ngClass]="{ selected: (settings$ | async)?.StudyPeriod === 'OTH' }"
       >
         Fri
       </button>
@@ -225,6 +226,7 @@
         (click)="updateSettings('StudyPeriod', 'LP1')"
         type="button"
         class="option"
+        [ngClass]="{ selected: (settings$ | async)?.StudyPeriod === 'LP1' }"
       >
         LP1
       </button>
@@ -232,6 +234,7 @@
         (click)="updateSettings('StudyPeriod', 'LP2')"
         type="button"
         class="option"
+        [ngClass]="{ selected: (settings$ | async)?.StudyPeriod === 'LP2' }"
       >
         LP2
       </button>
@@ -239,13 +242,23 @@
         (click)="updateSettings('StudyPeriod', 'LP3')"
         type="button"
         class="option"
+        [ngClass]="{ selected: (settings$ | async)?.StudyPeriod === 'LP3' }"
       >
         LP3
+      </button>
+      <button
+        (click)="updateSettings('StudyPeriod', 'LP4')"
+        type="button"
+        class="option"
+        [ngClass]="{ selected: (settings$ | async)?.StudyPeriod === 'LP4' }"
+      >
+        LP4
       </button>
       <button
         (click)="updateSettings('StudyPeriod', 'LPS')"
         type="button"
         class="option"
+        [ngClass]="{ selected: (settings$ | async)?.StudyPeriod === 'LPS' }"
       >
         LPS
       </button>
@@ -256,6 +269,7 @@
         (click)="updateSettings('CourseLevel', '0')"
         type="button"
         class="option"
+        [ngClass]="{ selected: (settings$ | async)?.CourseLevel === '0' }"
       >
         Förutbildningsnivå
       </button>
@@ -263,6 +277,7 @@
         (click)="updateSettings('CourseLevel', '1')"
         type="button"
         class="option"
+        [ngClass]="{ selected: (settings$ | async)?.CourseLevel === '1' }"
       >
         Grundnivå
       </button>
@@ -270,6 +285,7 @@
         (click)="updateSettings('CourseLevel', '2')"
         type="button"
         class="option"
+        [ngClass]="{ selected: (settings$ | async)?.CourseLevel === '2' }"
       >
         Avancerad nivå
       </button>
@@ -277,6 +293,7 @@
         (click)="updateSettings('CourseLevel', '3')"
         type="button"
         class="option"
+        [ngClass]="{ selected: (settings$ | async)?.CourseLevel === '3' }"
       >
         Forskarnivå
       </button>
@@ -287,6 +304,7 @@
         (click)="updateSettings('Year', '1')"
         type="button"
         class="option"
+        [ngClass]="{ selected: (settings$ | async)?.Year === '1' }"
       >
         År 1
       </button>
@@ -294,6 +312,7 @@
         (click)="updateSettings('Year', '2')"
         type="button"
         class="option"
+        [ngClass]="{ selected: (settings$ | async)?.Year === '2' }"
       >
         År 2
       </button>
@@ -301,6 +320,7 @@
         (click)="updateSettings('Year', '3')"
         type="button"
         class="option"
+        [ngClass]="{ selected: (settings$ | async)?.Year === '3' }"
       >
         År 3
       </button>
@@ -308,6 +328,7 @@
         (click)="updateSettings('Year', '4')"
         type="button"
         class="option"
+        [ngClass]="{ selected: (settings$ | async)?.Year === '4' }"
       >
         År 4
       </button>
@@ -315,6 +336,7 @@
         (click)="updateSettings('Year', '5')"
         type="button"
         class="option"
+        [ngClass]="{ selected: (settings$ | async)?.Year === '5' }"
       >
         År 5
       </button>
@@ -343,6 +365,7 @@
         (click)="updateSettings('Language', 'sv')"
         type="button"
         class="option"
+        [ngClass]="{ selected: (settings$ | async)?.Language === 'sv' }"
       >
         Svenska
       </button>
@@ -350,6 +373,7 @@
         (click)="updateSettings('Language', 'en')"
         type="button"
         class="option"
+        [ngClass]="{ selected: (settings$ | async)?.Language === 'en' }"
       >
         Engelska
       </button>
@@ -360,6 +384,7 @@
         (click)="updateSettings('Capacity', 'J')"
         type="button"
         class="option"
+        [ngClass]="{ selected: (settings$ | async)?.Capacity === 'J' }"
       >
         Med platsgräns
       </button>
@@ -367,6 +392,7 @@
         (click)="updateSettings('Capacity', 'N')"
         type="button"
         class="option"
+        [ngClass]="{ selected: (settings$ | async)?.Capacity === 'N' }"
       >
         Utan platsgräns
       </button>
@@ -377,6 +403,7 @@
         (click)="updateSettings('Sort', 'CODE')"
         type="button"
         class="option"
+        [ngClass]="{ selected: (settings$ | async)?.Sort === 'CODE' }"
       >
         Kod
       </button>
@@ -384,6 +411,7 @@
         (click)="updateSettings('Sort', 'NAME')"
         type="button"
         class="option"
+        [ngClass]="{ selected: (settings$ | async)?.Sort === 'NAME' }"
       >
         Namn
       </button>
@@ -391,6 +419,7 @@
         (click)="updateSettings('Sort', 'CREDIT_SORT')"
         type="button"
         class="option"
+        [ngClass]="{ selected: (settings$ | async)?.Sort === 'CREDIT_SORT' }"
       >
         Poäng
       </button>
@@ -398,6 +427,7 @@
         (click)="updateSettings('Sort', 'DEPT')"
         type="button"
         class="option"
+        [ngClass]="{ selected: (settings$ | async)?.Sort === 'DEPT' }"
       >
         Institution
       </button>
