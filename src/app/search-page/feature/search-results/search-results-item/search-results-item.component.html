@@ -1,17 +1,22 @@
 <div class="container">
-  <span>{{ course.Code }}</span>
-  <span class="coursename">{{ course.Name }}</span>
-  <span>{{ course.Credit }}</span>
-  <span>{{ course.Institution }}</span>
+  <span class="course-code">{{ course.Code }}</span>
+  <span class="course-name">{{ course.Name }}</span>
+  <span class="course-credit">{{ course.Credit }}</span>
+  <span class="course-dept">{{ course.Institution }}</span>
   <div class="stats">
     <span *ngIf="course.PassRate">
-      Godkänt: {{ course.PassRate | percentage }}</span
-    >
+      {{ course.PassRate | percentage }} <i class="ph-graduation-cap"></i
+    ></span>
+    <span *ngIf="!course.PassRate"> - <i class="ph-graduation-cap"></i></span>
     <span *ngIf="course.AverageGrade">
-      Snitt Betyg: {{ course.AverageGrade.toFixed(2) }}</span
-    >
-    <span *ngIf="course.SampleSize"> Mängd data: {{ course.SampleSize }}</span>
+      {{ course.AverageGrade.toFixed(2) }} <i class="ph-exam"></i
+    ></span>
+    <span *ngIf="!course.AverageGrade"> - <i class="ph-exam"></i></span>
+    <span *ngIf="course.SampleSize">
+      {{ course.SampleSize }} <i class="ph-database"></i
+    ></span>
+    <span *ngIf="!course.SampleSize"> - <i class="ph-database"></i></span>
   </div>
-  <a [href]="course.CourseInfo">Mer info</a>
-  <a [href]="course.Canvas">Canvas</a>
+  <a class="info" [href]="course.CourseInfo">Info</a>
+  <a class="home" [href]="course.Canvas">Canvas</a>
 </div>

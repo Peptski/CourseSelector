@@ -405,7 +405,7 @@
         class="option"
         [ngClass]="{ selected: (settings$ | async)?.Sort === 'CODE' }"
       >
-        Kod
+        Kod <i class="ph-sort-ascending"></i>
       </button>
       <button
         (click)="updateSettings('Sort', 'NAME')"
@@ -413,7 +413,7 @@
         class="option"
         [ngClass]="{ selected: (settings$ | async)?.Sort === 'NAME' }"
       >
-        Namn
+        Namn <i class="ph-sort-ascending"></i>
       </button>
       <button
         (click)="updateSettings('Sort', 'CREDIT_SORT')"
@@ -421,7 +421,7 @@
         class="option"
         [ngClass]="{ selected: (settings$ | async)?.Sort === 'CREDIT_SORT' }"
       >
-        Poäng
+        Poäng <i class="ph-sort-ascending"></i>
       </button>
       <button
         (click)="updateSettings('Sort', 'DEPT')"
@@ -429,7 +429,7 @@
         class="option"
         [ngClass]="{ selected: (settings$ | async)?.Sort === 'DEPT' }"
       >
-        Institution
+        Institution <i class="ph-sort-ascending"></i>
       </button>
     </div>
   </form>

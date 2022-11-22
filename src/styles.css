@@ -5,6 +5,7 @@
   font-family: "Inter", sans-serif;
   border: none;
   transition: 0.3s;
+  color: #07160d;
 }
 
 body::-webkit-scrollbar {
