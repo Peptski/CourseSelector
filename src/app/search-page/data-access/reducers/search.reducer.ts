@@ -8,6 +8,7 @@ import { Course } from '../../utils/course.model';
 import { Settings } from '../../utils/settings.model';
 import { apiSearchSuccess } from '../actions/search-page-api.actions';
 import {
+  searchSubmit,
   updateCapacity,
   updateCourseCode,
   updateCourseLevel,
@@ -166,8 +167,10 @@ export const reducer = createReducer(
     };
   }),
   on(apiSearchSuccess, (state, action) => {
-    console.log(action);
     return { settings: state.settings, courses: action.courses };
+  }),
+  on(searchSubmit, (state, _) => {
+    return { courses: [], settings: state.settings };
   })
 );
 

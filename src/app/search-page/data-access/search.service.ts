@@ -8,6 +8,8 @@ export class SearchService {
   constructor(private http: HttpClient) {}
 
   searchCourses(settings: Settings) {
+    console.log('Sent');
+
     let query =
       'https://student.portal.chalmers.se/sv/chalmersstudier/minkursinformation/sidor/sokkurs.aspx?flag=1&search_ac_year=2022/2023&batch_size=1400';
 

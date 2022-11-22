@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormControl, FormGroup, ReactiveFormsModule } from '@angular/forms';
 import { Store } from '@ngrx/store';
@@ -17,7 +17,7 @@ import {
   updateStudyPeriod,
   updateYear,
 } from '../../data-access/actions/search-page.actions';
-import { Observable } from 'rxjs';
+import { debounceTime, Observable } from 'rxjs';
 import { Settings } from '../../utils/settings.model';
 import { selectSettings } from '../../data-access/reducers/search.reducer';
 
@@ -28,7 +28,7 @@ import { selectSettings } from '../../data-access/reducers/search.reducer';
   templateUrl: './search-settings.component.html',
   styleUrls: ['./search-settings.component.css'],
 })
-export class SearchSettingsComponent {
+export class SearchSettingsComponent implements OnInit {
   settingsForm: FormGroup;
   settings$: Observable<Settings>;
 
@@ -45,36 +45,68 @@ export class SearchSettingsComponent {
     });
   }
 
-  updateSettings(field: String, data: String | Event) {
+  ngOnInit() {
+    this.settingsForm
+      .get('CourseCode')
+      ?.valueChanges.pipe(debounceTime(500))
+      .subscribe((data) => this.updateSettings('CourseCode', data));
+
+    this.settingsForm
+      .get('CourseName')
+      ?.valueChanges.pipe(debounceTime(500))
+      .subscribe((data) => this.updateSettings('CourseName', data));
+
+    this.settingsForm
+      .get('MinCredit')
+      ?.valueChanges.pipe(debounceTime(500))
+      .subscribe((data) => this.updateSettings('MinCredit', data));
+
+    this.settingsForm
+      .get('MaxCredit')
+      ?.valueChanges.pipe(debounceTime(500))
+      .subscribe((data) => this.updateSettings('MaxCredit', data));
+
+    this.settingsForm
+      .get('Program')
+      ?.valueChanges.pipe(debounceTime(500))
+      .subscribe((data) => this.updateSettings('Program', data));
+
+    this.settingsForm
+      .get('Institution')
+      ?.valueChanges.pipe(debounceTime(500))
+      .subscribe((data) => this.updateSettings('Institution', data));
+  }
+
+  updateSettings(field: String, data: String) {
     switch (field) {
       case 'StudyPeriod':
-        this.store.dispatch(updateStudyPeriod({ data: data as String }));
+        this.store.dispatch(updateStudyPeriod({ data: data }));
         break;
 
       case 'Language':
-        this.store.dispatch(updateLanguage({ data: data as String }));
+        this.store.dispatch(updateLanguage({ data: data }));
         break;
 
       case 'CourseLevel':
-        this.store.dispatch(updateCourseLevel({ data: <String>data }));
+        this.store.dispatch(updateCourseLevel({ data: data }));
         break;
 
       case 'Year':
-        this.store.dispatch(updateYear({ data: <String>data }));
+        this.store.dispatch(updateYear({ data: data }));
         break;
 
       case 'Capacity':
-        this.store.dispatch(updateCapacity({ data: <String>data }));
+        this.store.dispatch(updateCapacity({ data: data }));
         break;
 
       case 'Sort':
-        this.store.dispatch(updateSort({ data: <String>data }));
+        this.store.dispatch(updateSort({ data: data }));
         break;
 
       case 'CourseCode':
         this.store.dispatch(
           updateCourseCode({
-            data: (<HTMLInputElement>(<Event>data).target).value,
+            data: data,
           })
         );
         break;
@@ -82,7 +114,7 @@ export class SearchSettingsComponent {
       case 'CourseName':
         this.store.dispatch(
           updateCourseName({
-            data: (<HTMLInputElement>(<Event>data).target).value,
+            data: data,
           })
         );
         break;
@@ -90,7 +122,7 @@ export class SearchSettingsComponent {
       case 'Program':
         this.store.dispatch(
           updateProgram({
-            data: (<HTMLSelectElement>(<Event>data).target).value,
+            data: data,
           })
         );
         break;
@@ -98,7 +130,7 @@ export class SearchSettingsComponent {
       case 'Institution':
         this.store.dispatch(
           updateInstitution({
-            data: (<HTMLSelectElement>(<Event>data).target).value,
+            data: data,
           })
         );
         break;
@@ -106,7 +138,7 @@ export class SearchSettingsComponent {
       case 'MinCredit':
         this.store.dispatch(
           updateMinCredit({
-            data: (<HTMLInputElement>(<Event>data).target).value,
+            data: data,
           })
         );
         break;
@@ -114,7 +146,7 @@ export class SearchSettingsComponent {
       case 'MaxCredit':
         this.store.dispatch(
           updateMaxCredit({
-            data: (<HTMLInputElement>(<Event>data).target).value,
+            data: data,
           })
         );
         break;
