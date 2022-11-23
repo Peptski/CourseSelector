@@ -1,4 +1,7 @@
 <div class="container">
+  <div class="container" *ngIf="loading$ | async">
+    <div class="spinner"></div>
+  </div>
   <app-search-results-item
     *ngFor="let course of courses$ | async"
     [course]="course"

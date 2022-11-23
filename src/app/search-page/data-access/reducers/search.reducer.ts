@@ -6,7 +6,10 @@ import {
 } from '@ngrx/store';
 import { Course } from '../../utils/course.model';
 import { Settings } from '../../utils/settings.model';
-import { apiSearchSuccess } from '../actions/search-page-api.actions';
+import {
+  apiSearchFail,
+  apiSearchSuccess,
+} from '../actions/search-page-api.actions';
 import {
   searchSubmit,
   updateCapacity,
@@ -30,6 +33,7 @@ export interface AppState {
 export interface State {
   courses: Course[];
   settings: Settings;
+  loading: boolean;
 }
 
 export const initialState: State = {
@@ -49,6 +53,7 @@ export const initialState: State = {
     Capacity: '',
     Sort: '',
   },
+  loading: false,
 };
 
 export const reducer = createReducer(
@@ -167,10 +172,17 @@ export const reducer = createReducer(
     };
   }),
   on(apiSearchSuccess, (state, action) => {
-    return { settings: state.settings, courses: action.courses };
+    return {
+      settings: state.settings,
+      courses: action.courses,
+      loading: false,
+    };
+  }),
+  on(apiSearchFail, (state, _) => {
+    return { courses: [], settings: state.settings, loading: false };
   }),
   on(searchSubmit, (state, _) => {
-    return { courses: [], settings: state.settings };
+    return { courses: [], settings: state.settings, loading: true };
   })
 );
 
@@ -184,4 +196,9 @@ export const selectCourses = createSelector(
 export const selectSettings = createSelector(
   selectSearchPageState,
   (searchPageState) => searchPageState.settings
+);
+
+export const selectLoading = createSelector(
+  selectSearchPageState,
+  (searchPageState) => searchPageState.loading
 );
