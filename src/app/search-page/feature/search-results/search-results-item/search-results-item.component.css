@@ -23,17 +23,13 @@ span {
   font-weight: 600;
 }
 
-a {
-  all: unset;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+button {
+  color: #4ade80;
+  background-color: #0f2c1a;
   border-radius: 0.8rem;
   font-size: 1.2rem;
   font-weight: 700;
   padding: 0.4rem 1.2rem;
-  margin: 1.2rem 0.4rem;
-  background-color: #3bb266;
   cursor: pointer;
 }
 
@@ -60,6 +56,10 @@ a {
   font-size: 1.2rem;
   grid-row: 1;
   grid-column: 15 / span 1;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  margin-bottom: 0.4rem;
 }
 
 .course-dept {
@@ -67,6 +67,10 @@ a {
   font-size: 1.2rem;
   grid-row: 1;
   grid-column: 16 / span 1;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  margin-bottom: 0.4rem;
 }
 
 .info {
@@ -79,8 +83,42 @@ a {
   grid-column: 15 / span 2;
 }
 
-.info:hover,
-.home:hover {
+.home,
+.info {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.pass-rate,
+.average-grade,
+.sample-size,
+.course-credit,
+.course-dept {
+  position: relative;
+}
+
+.tooltip {
+  position: absolute;
+  bottom: -1rem;
+  font-size: 0.9rem;
+  font-weight: 700;
+  padding: 0.4rem 1.2rem;
+  border-radius: 0.8rem;
   color: #4ade80;
-  background-color: #1e5933;
+  background-color: #0f2c1a;
+  opacity: 0;
+}
+
+.pass-rate:hover .tooltip,
+.average-grade:hover .tooltip,
+.sample-size:hover .tooltip,
+.course-credit-text:hover .tooltip,
+.course-dept-text:hover .tooltip {
+  opacity: 1;
+}
+
+button:hover {
+  color: #0f2c1a;
+  background-color: #4ade80;
 }

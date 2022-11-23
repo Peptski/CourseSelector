@@ -1,22 +1,45 @@
 <div class="container">
   <span class="course-code">{{ course.Code }}</span>
   <span class="course-name">{{ course.Name }}</span>
-  <span class="course-credit">{{ course.Credit }}</span>
-  <span class="course-dept">{{ course.Institution }}</span>
-  <div class="stats">
-    <span *ngIf="course.PassRate">
-      {{ course.PassRate | percentage }} <i class="ph-graduation-cap"></i
-    ></span>
-    <span *ngIf="!course.PassRate"> - <i class="ph-graduation-cap"></i></span>
-    <span *ngIf="course.AverageGrade">
-      {{ course.AverageGrade.toFixed(2) }} <i class="ph-exam"></i
-    ></span>
-    <span *ngIf="!course.AverageGrade"> - <i class="ph-exam"></i></span>
-    <span *ngIf="course.SampleSize">
-      {{ course.SampleSize }} <i class="ph-database"></i
-    ></span>
-    <span *ngIf="!course.SampleSize"> - <i class="ph-database"></i></span>
+  <div class="course-credit">
+    <span class="course-credit-text"
+      >{{ course.Credit }}<span class="tooltip">Poäng</span></span
+    >
   </div>
-  <a class="info" [href]="course.CourseInfo">Info</a>
-  <a class="home" [href]="course.Canvas">Canvas</a>
+  <div class="course-dept">
+    <span class="course-dept-text"
+      >{{ course.Institution }}<span class="tooltip">Institution</span></span
+    >
+  </div>
+
+  <div class="stats">
+    <span class="pass-rate" *ngIf="course.PassRate">
+      {{ course.PassRate | percentage }} <i class="ph-graduation-cap"></i
+      ><span class="tooltip">Godkänt</span></span
+    >
+    <span class="pass-rate" *ngIf="!course.PassRate">
+      - <i class="ph-graduation-cap"></i
+      ><span class="tooltip">Godkänt</span></span
+    >
+    <span class="average-grade" *ngIf="course.AverageGrade">
+      {{ course.AverageGrade.toFixed(2) }} <i class="ph-exam"></i
+      ><span class="tooltip">Snitt betyg</span></span
+    >
+    <span class="average-grade" *ngIf="!course.AverageGrade">
+      - <i class="ph-exam"></i><span class="tooltip">Snitt betyg</span></span
+    >
+    <span class="sample-size" *ngIf="course.SampleSize">
+      {{ course.SampleSize }} <i class="ph-database"></i>
+      <span class="tooltip">Mängd data</span></span
+    >
+    <span class="sample-size" *ngIf="!course.SampleSize">
+      - <i class="ph-database"></i><span class="tooltip">Mängd data</span></span
+    >
+  </div>
+  <div class="info">
+    <a [href]="course.CourseInfo"><button type="button">Info</button></a>
+  </div>
+  <div class="home">
+    <a [href]="course.Canvas"><button type="button">Canvas</button></a>
+  </div>
 </div>
