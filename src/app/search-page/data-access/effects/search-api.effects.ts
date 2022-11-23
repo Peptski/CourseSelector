@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Actions, createEffect, ofType } from '@ngrx/effects';
 import { Store } from '@ngrx/store';
-import { concatMap, map, withLatestFrom, catchError, of } from 'rxjs';
+import { map, withLatestFrom, catchError, of, switchMap } from 'rxjs';
 import { Course } from '../../utils/course.model';
 import {
   apiSearchFail,
@@ -23,7 +23,7 @@ export class SearchApiEffects {
     return this.actions$.pipe(
       ofType(searchSubmit),
       withLatestFrom(this.store.select(selectSettings)),
-      concatMap(([_, settings]) => {
+      switchMap(([_, settings]) => {
         return this.searchService.searchCourses(settings).pipe(
           catchError((err) => {
             console.log(err);

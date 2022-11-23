@@ -19,7 +19,7 @@ export class SearchService {
     if (settings.CourseName)
       query += `&search_course_name_sv=${settings.CourseName}`;
 
-    //if (settings.CourseName) query += `&search_course_name_sv=${settings.CourseName}`;
+    //if (settings.CourseName) query += `&search_course_name_en=${settings.CourseName}`;
 
     if (settings.Program) query += `&search_course_owner=${settings.Program}`;
 
