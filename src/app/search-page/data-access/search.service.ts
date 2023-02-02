@@ -11,7 +11,7 @@ export class SearchService {
     console.log('Sent');
 
     let query =
-      'https://student.portal.chalmers.se/sv/chalmersstudier/minkursinformation/sidor/sokkurs.aspx?flag=1&search_ac_year=2022/2023&batch_size=1400';
+      'https://www.student.chalmers.se/sp/course_list?flag=1&search_ac_year=2022/2023&batch_size=1400';
 
     if (settings.CourseCode)
       query += `&search_course_code=${settings.CourseCode}`;
